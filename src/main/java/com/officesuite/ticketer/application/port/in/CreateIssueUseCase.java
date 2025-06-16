@@ -1,4 +1,7 @@
 package com.officesuite.ticketer.application.port.in;
 
-public class CreateIssueUseCase {
+public interface CreateIssueUseCase {
+
+    void createIssue(CreateIssueCommand createIssueCommand);
+
 }
