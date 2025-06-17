@@ -1,11 +1,13 @@
 package com.officesuite.ticketer.domain.model;
 
 import com.officesuite.ticketer.application.port.in.CreateIssueCommand;
+
 import java.io.Serial;
 import java.io.Serializable;
-import java.security.Timestamp;
+import java.time.Instant;
 
-public record Issue  (
+public record Issue(
+        String issueId,
         String projectId,
         String title,
         String description,
@@ -16,7 +18,7 @@ public record Issue  (
         String reporterId,
         String sprintId,
         String customFields,
-        Timestamp createdAt,
+        Instant createdAt,
         String institutionId
 ) implements Serializable {
     @Serial
@@ -25,18 +27,19 @@ public record Issue  (
 
     public Issue(CreateIssueCommand command) {
         this(
-            command.getProjectId(),
-            command.getTitle(),
-            command.getDescription(),
-            command.getType(),
-            command.getStatusId(),
-            command.getPriority(),
-            command.getAssigneeId(),
-            command.getReporterId(),
-            command.getSprintId(),
-            command.getCustomFields(),
-            command.getCreatedAt(),
-            command.getInstitutionId()
+                command.getProjectId() + "0",
+                command.getProjectId(),
+                command.getTitle(),
+                command.getDescription(),
+                command.getType(),
+                command.getStatusId(),
+                command.getPriority(),
+                command.getAssigneeId(),
+                command.getReporterId(),
+                command.getSprintId(),
+                command.getCustomFields(),
+                command.getCreatedAt(),
+                command.getInstitutionId()
         );
     }
 }

@@ -4,7 +4,7 @@ import com.officesuite.ticketer.domain.model.Issue;
 
 public interface IssueRepository {
 
-    void save(Issue issue);
+    Issue save(Issue issue);
 
     Issue findById(String id);
 

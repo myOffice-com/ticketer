@@ -1,6 +1,7 @@
 package com.officesuite.ticketer.application.service;
 
 import com.officesuite.ticketer.application.port.in.CreateIssueCommand;
+import com.officesuite.ticketer.application.port.in.CreateIssueResponse;
 import com.officesuite.ticketer.application.port.in.CreateIssueUseCase;
 import com.officesuite.ticketer.application.port.out.IssueRepository;
 import com.officesuite.ticketer.domain.model.Issue;
@@ -19,8 +20,8 @@ public class CreateIssueService implements CreateIssueUseCase {
      * @param createIssueCommand the command containing issue details
      */
     @Override
-    public void createIssue(CreateIssueCommand createIssueCommand) {
-        issueRepository.save(new Issue(createIssueCommand));
+    public CreateIssueResponse createIssue(CreateIssueCommand createIssueCommand) {
+       return new CreateIssueResponse(issueRepository.save(new Issue(createIssueCommand)));
     }
 
 

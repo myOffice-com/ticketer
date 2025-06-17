@@ -4,7 +4,7 @@ import lombok.Data;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.security.Timestamp;
+import java.time.Instant;
 
 @Data
 public class CreateIssueRequest implements Serializable {
@@ -22,7 +22,7 @@ public class CreateIssueRequest implements Serializable {
     private String reporterId;
     private String sprintId;
     private String customFields;
-    private Timestamp createdAt;
+    private Instant createdAt;
     private String institutionId;
 
 }

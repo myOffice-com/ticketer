@@ -9,4 +9,5 @@ public interface IssueEntityMapper {
 
     IssueEntity toEntity(Issue issue);
 
+    Issue toDomain(com.officesuite.ticketer.adapters.persistence.entity.IssueEntity issueEntity);
 }

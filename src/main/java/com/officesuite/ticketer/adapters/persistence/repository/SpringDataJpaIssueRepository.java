@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SpringDataJpaIssueRepository extends JpaRepository<IssueEntity,Long> {
+    long countAllByProjectId(String s);
 }

@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.security.Timestamp;
+import java.time.Instant;
 
 @Data
 @NoArgsConstructor
@@ -28,7 +28,7 @@ public class CommentsEntity {
     private String message;
 
     @Column(name = "created_at")
-    private Timestamp createdAt;
+    private Instant createdAt;
 
     @Column(name = "reply_to")
     private String replyTo;

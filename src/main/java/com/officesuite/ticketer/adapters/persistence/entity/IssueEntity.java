@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.security.Timestamp;
+import java.time.Instant;
 
 /**
  * Entity representing an issue in the persistence layer.
@@ -103,7 +103,7 @@ public class IssueEntity implements Serializable {
      * Timestamp when the issue was created.
      */
     @Column(name = "created_at", nullable = false)
-    private Timestamp createdAt;
+    private Instant createdAt;
 
     /**
      * Identifier for the institution or organization owning the issue.
@@ -207,11 +207,11 @@ public class IssueEntity implements Serializable {
         this.customFields = customFields;
     }
 
-    public Timestamp getCreatedAt() {
+    public Instant getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Timestamp createdAt) {
+    public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }
 

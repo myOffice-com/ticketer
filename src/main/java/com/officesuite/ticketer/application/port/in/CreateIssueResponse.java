@@ -1,16 +1,13 @@
 package com.officesuite.ticketer.application.port.in;
 
-import com.officesuite.ticketer.adapters.rest.dto.CreateIssueRequest;
+import com.officesuite.ticketer.domain.model.Issue;
 
 import java.time.Instant;
 
-/**
- * Command object for creating an issue.
- * This class encapsulates the data required to create a new issue in the system.
- */
 @SuppressWarnings("LombokGetterMayBeUsed")
-public class CreateIssueCommand {
+public class CreateIssueResponse {
 
+    private final String issueId;
     private final String projectId;
     private final String title;
     private final String description;
@@ -24,20 +21,25 @@ public class CreateIssueCommand {
     private final Instant createdAt;
     private final String institutionId;
 
-    // Constructor using CreateIssueRequest
-    public CreateIssueCommand(CreateIssueRequest request) {
-        this.projectId = request.getProjectId();
-        this.title = request.getTitle();
-        this.description = request.getDescription();
-        this.type = request.getType();
-        this.statusId = request.getStatusId();
-        this.priority = request.getPriority();
-        this.assigneeId = request.getAssigneeId();
-        this.reporterId = request.getReporterId();
-        this.sprintId = request.getSprintId();
-        this.customFields = request.getCustomFields();
-        this.createdAt = request.getCreatedAt();
-        this.institutionId = request.getInstitutionId();
+    // Constructor that initializes fields from an Issue object
+    public CreateIssueResponse(Issue issue) {
+        this.issueId = issue.issueId();
+        this.projectId = issue.projectId();
+        this.title = issue.title();
+        this.description = issue.description();
+        this.type = issue.type();
+        this.statusId = issue.statusId();
+        this.priority = issue.priority();
+        this.assigneeId = issue.assigneeId();
+        this.reporterId = issue.reporterId();
+        this.sprintId = issue.sprintId();
+        this.customFields = issue.customFields();
+        this.createdAt = issue.createdAt();
+        this.institutionId = issue.institutionId();
+    }
+
+    public String getIssueId() {
+        return issueId;
     }
 
     public String getProjectId() {
